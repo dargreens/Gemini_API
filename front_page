@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+</head>
+<body>
+    <style>
+        nav{background-color: lightcyan;display: flex;flex-direction: row;}
+        #sub-user-inp{background-color: aqua; width: 30; font: size 16;}
+        #display{width: 30%;height: 30%;border: 3px solid purple; border-radius: 2px;}      
+    </style>
+<nav><div><h3>GenAi is experimental ..</h3></div></nav>
+
+<p>welcome {{welcome}}</p>
+
+
+<div>
+
+    
+    <label for="ask">Prompt:</label>
+    <input type="text" id="ask" name="ask" placeholder="Ask me sum">
+    <button id="sub-user-inp" >Generate</button>
+
+    </div>
+    
+    <p>your answer below:</p>
+    <!--display response here-->
+    <div id="display"></div>
+
+
+<script>
+
+
+
+//process user input
+
+document.getElementById('sub-user-inp').addEventListener("click", async () => {
+
+
+const generate='/jsonurl';
+//get user input here-->
+user_input=document.getElementById('ask').value;
+
+try {
+    const response= await fetch(generate, {
+        method:'POST',
+        headers:{'Content-Type': 'application/json',},
+        body:JSON.stringify({ 'link': user_input })
+
+    });
+    const data= await response.json();
+    document.getElementById('display').innerHTML=data.content;
+    
+} catch (error) {
+    console.error('Error occured:', error);
+    alert('Ummmm.. please try again');
+}
+
+
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>
