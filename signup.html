@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>login</title>
+</head>
+<body>
+    <style>
+        nav{background-color: lightcyan;display: flex;flex-direction: row;}
+        h3{font: bold;font-family: Verdana; color: blueviolet;}
+        #signup-div{border: 2px solid blue;border-radius: 0.5em;  
+  position: fixed;  
+  left: 40%;
+  padding: 5%;
+  }
+      
+    </style>
+<nav>
+    <div><h3>Sign Up</h3></div>
+    <div><h4>Register here</h4></div>
+</nav>
+<br>
+
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <div id="signup-div">
+    
+    <p>Username:</p>
+    <input type="text" name="username" placeholder="type your uid here..">    
+    <p>Email:</p>
+    <input type="email" name="email" placeholder="user@example.com">
+    <p>Password:</p>
+    <input type="password" name="password" placeholder="type your psswd here..">
+    <p>Re-Type Password:</p>
+    <input type="password" name="Re-Type-Password" placeholder="re-type psswd here..">
+
+
+<div><input type="submit" value="Signup"></div>
+
+<!--{%  if error_msg %}-->
+<p style="color: red">{{error_msg}}</p>
+<!--{%  endif %}-->
+
+</div>
+    
+
+
+</form>
+</body>
+</html>

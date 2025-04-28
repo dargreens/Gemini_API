@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+    <style>
+        nav{background-color: lightcyan;display: flex;flex-direction: row;}
+        h3{font: bold;font-family: Verdana; color: blueviolet;}
+        #login-div{border: 2px solid blue;border-radius: 0.5em;
+  
+    position: fixed;
+    
+    left: 40%;
+    padding: 5%;
+    
+  }
+      
+    </style>
+<nav>
+    <div><h3>Welcome</h3></div>
+    <div><h4>Login to your account</h4></div>
+</nav>
+<br>
+<div id="login-div">
+<p>{{entrada}}</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div>
+        <p>Username:</p>
+    <input type="text" name="username" placeholder="type your uid here..">
+</div>
+    
+    <div>
+        <p>Password:</p>
+    <input type="password" name="password" placeholder="type your psswd here..">
+</div>
+<br>
+<div>
+    <input type="submit" value="Login">
+    
+</div>
+<h4>New User? <a href="signup"><span>Sign Up</span></a></h4>
+</form>
+
+<p style="color: red;">{{error_msg}}</p>
+
+</div>
+</body>
+</html>
